@@ -23,9 +23,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <div></div>
-                    <div>Instavel</div>
+                <a class="navbar-brand d-flex" href="{{ url('/') }}">
+                    <div>
+                        <img class="pr-2" src="/svg/instavel_logo.svg" alt=""/>
+                    </div>
+                    <div class="pl-2 navbar-title">Instavel</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

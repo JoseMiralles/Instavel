@@ -1,8 +1,39 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Open+Sans:ital,wght@0,300;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.navbar-brand{
+    .navbar-title{
+        font-family: 'Grand Hotel', cursive;
+        font-size: 2rem;
+        line-height: 2.3rem;
+    }
+    div{
+        img{
+            height: 2rem;
+            width: 2rem;
+            border-right: 1px solid dimgray;
+            display: none;
+        }
+    }
+}
+
+.profile-pic-wrapper{
+    img{
+        width:100%;
+        height: auto;
+    }
+}
+
+.profile-info{
+    h1{
+        font-weight: 300;
+    }
+}
