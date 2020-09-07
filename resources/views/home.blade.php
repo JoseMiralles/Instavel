@@ -18,9 +18,9 @@
                 <div class="pr-3"><strong>111</strong> followers</div>
                 <div class="pr-3"><strong>111</strong> following</div>
             </div>
-            <div class="pt-4"><strong>MySite.com</strong></div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-            <a href="https://www.google.com"><div>www.google.com</div></a>
+            <div class="pt-4"><strong>{{$user->profile->title}}</strong></div>
+            <div>{{$user->profile->description}}</div>
+            <a href="{{$user->profile->url}}"><div>{{$user->profile->url}}</div></a>
         </div>
 
     </div>
