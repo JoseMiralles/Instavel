@@ -6,12 +6,12 @@
     <div class="row">
 
         <!-- Profile pic -->
-        <div class="col-3 p-5 profile-pic-wrapper">
+        <div class="col-md-3 p-5 profile-pic-wrapper">
             <img class="rounded-circle" src="https://pyxis.nymag.com/v1/imgs/9b1/3bf/52ecf309c857c380b7187bfc8c59dac441-04-jeb-bush-1.rsquare.w330.jpg"/>
         </div>
 
         <!-- Profile info -->
-        <div class="col-9 pt-5 profile-info">
+        <div class="col-md-9 pt-5 profile-info">
             <div class="profile-name"><h1>{{ $user->username }}</h1></div>
             <div class="d-flex">
                 <div class="pr-3"><strong>111</strong> posts</div>
@@ -20,7 +20,7 @@
             </div>
             <div class="pt-4"><strong>MySite.com</strong></div>
             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-            <div>www.google.com</div>
+            <a href="https://www.google.com"><div>www.google.com</div></a>
         </div>
 
     </div>
