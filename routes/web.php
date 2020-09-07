@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*It's extremelly important to follow the RESTFUl conventions.*/
+Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');

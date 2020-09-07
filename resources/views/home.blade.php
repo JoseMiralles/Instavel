@@ -12,7 +12,7 @@
 
         <!-- Profile info -->
         <div class="col-9 pt-5 profile-info">
-            <div class="profile-name"><h1>Name LastName</h1></div>
+            <div class="profile-name"><h1>{{ $user->username }}</h1></div>
             <div class="d-flex">
                 <div class="pr-3"><strong>111</strong> posts</div>
                 <div class="pr-3"><strong>111</strong> followers</div>
@@ -25,7 +25,7 @@
 
     </div>
 
-    <div class="row profile-posts pt-">
+    <div class="row profile-posts pt-4">
 
         <div class="col-4 p-3 image-post">
             <img class="w-100" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/117532617_329372988207182_2163166929089500044_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=J_4DldSndfQAX-z1RKz&oh=784d75d1a00fa38a915e1f2be3862931&oe=5F80DEA6"/>
