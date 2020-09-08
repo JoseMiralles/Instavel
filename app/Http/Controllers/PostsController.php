@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -22,10 +23,26 @@ class PostsController extends Controller
         // Validate the fields.
         $data = request()->validate([
             'caption' => 'required',
-            'image' => 'required|image'
+            'image' => ['required', 'image']
         ]);
 
+        // Store it in uploads directroy.
+        // Remember to tell laravel to link that directory: 'php artisan storage:link'
+        // Files would then be in /storage/uplodas/{filename}
+        $imagePath = request('image')->store('uploads', 'public');
+
+        /** Crop the image for it to be a square.
+         * This should probably not be done.
+         */
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
+
         // Only works if authenticated.
-        auth()->user()->posts()->create($data);
+        auth()->user()->posts()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath,
+        ]);
+
+        return redirect('/profile/' . auth()->user()->id);
     }
 }

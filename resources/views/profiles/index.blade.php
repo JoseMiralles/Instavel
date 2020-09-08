@@ -1,46 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    
-    <div class="row">
+    <div class="container">
 
-        <!-- Profile pic -->
-        <div class="col-md-3 p-5 profile-pic-wrapper">
-            <img class="rounded-circle" src="https://pyxis.nymag.com/v1/imgs/9b1/3bf/52ecf309c857c380b7187bfc8c59dac441-04-jeb-bush-1.rsquare.w330.jpg"/>
+        <div class="row">
+
+            <!-- Profile pic -->
+            <div class="col-md-3 p-5 profile-pic-wrapper">
+                <img class="rounded-circle"
+                    src="https://pyxis.nymag.com/v1/imgs/9b1/3bf/52ecf309c857c380b7187bfc8c59dac441-04-jeb-bush-1.rsquare.w330.jpg" />
+            </div>
+
+            <!-- Profile info -->
+            <div class="col-md-9 pt-5 profile-info">
+                <div class="profile-name d-flex justify-content-between align-items-baseline">
+                    <h1>{{ $user->username }}</h1>
+                    <a href="/p/create">add new post</a>
+                </div>
+                <div class="d-flex">
+                    <div class="pr-3"><strong>{{ $user->posts->count() }}</strong> posts</div>
+                    <div class="pr-3"><strong>111</strong> followers</div>
+                    <div class="pr-3"><strong>111</strong> following</div>
+                </div>
+                <div class="pt-4"><strong>{{ $user->profile->title }}</strong></div>
+                <div>{{ $user->profile->description }}</div>
+                <a href="{{ $user->profile->url }}">
+                    <div>{{ $user->profile->url }}</div>
+                </a>
+            </div>
+
         </div>
 
-        <!-- Profile info -->
-        <div class="col-md-9 pt-5 profile-info">
-            <div class="profile-name">
-                <h1>{{ $user->username }}</h1>
-                <a href="#">add new post</a>
-            </div>
-            <div class="d-flex">
-                <div class="pr-3"><strong>111</strong> posts</div>
-                <div class="pr-3"><strong>111</strong> followers</div>
-                <div class="pr-3"><strong>111</strong> following</div>
-            </div>
-            <div class="pt-4"><strong>{{$user->profile->title}}</strong></div>
-            <div>{{$user->profile->description}}</div>
-            <a href="{{$user->profile->url}}"><div>{{$user->profile->url}}</div></a>
+        <div class="row profile-posts pt-4">
+
+            <!-- Render all the posts. -->
+            @foreach ($user->posts as $post)
+
+                <div class="col-4 p-3 image-post">
+                    <a href="/p/{{$post->id}}">
+                        <img class="w-100" src="/storage/{{ $post->image }}" />
+                    </a>
+                </div>
+
+            @endforeach
+
         </div>
 
     </div>
-
-    <div class="row profile-posts pt-4">
-
-        <div class="col-4 p-3 image-post">
-            <img class="w-100" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/117532617_329372988207182_2163166929089500044_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=J_4DldSndfQAX-z1RKz&oh=784d75d1a00fa38a915e1f2be3862931&oe=5F80DEA6"/>
-        </div>
-        <div class="col-4 p-3 image-post">
-            <img class="w-100" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/117532617_329372988207182_2163166929089500044_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=J_4DldSndfQAX-z1RKz&oh=784d75d1a00fa38a915e1f2be3862931&oe=5F80DEA6"/>
-        </div>
-        <div class="col-4 p-3 image-post">
-            <img class="w-100" src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/117532617_329372988207182_2163166929089500044_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=102&_nc_ohc=J_4DldSndfQAX-z1RKz&oh=784d75d1a00fa38a915e1f2be3862931&oe=5F80DEA6"/>
-        </div>
-
-    </div>
-
-</div>
 @endsection
