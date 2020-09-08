@@ -45,4 +45,16 @@ class PostsController extends Controller
 
         return redirect('/profile/' . auth()->user()->id);
     }
+
+    /**
+     * Renders a single post.
+     * Notice "\App\Post" in the argument.
+     */
+    public function show(\App\Post $post)
+    {
+        return view('posts.show',[
+            'post' => $post,
+        ]);
+    }
+
 }

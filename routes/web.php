@@ -22,8 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // This routes requests for "/p/create".
-Route::get('/p/create', 'PostsController@create');
-Route::post('/p', 'PostsController@store');
+Route::get('/p/create', 'PostsController@create'); // Upload page.
+Route::get('/p/{post}', 'PostsController@show'); //Display image page. {passes $post to the PostController}
+Route::post('/p', 'PostsController@store'); // Image posting
 
 Auth::routes();
 
