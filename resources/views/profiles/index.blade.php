@@ -12,7 +12,10 @@
 
         <!-- Profile info -->
         <div class="col-md-9 pt-5 profile-info">
-            <div class="profile-name"><h1>{{ $user->username }}</h1></div>
+            <div class="profile-name">
+                <h1>{{ $user->username }}</h1>
+                <a href="#">add new post</a>
+            </div>
             <div class="d-flex">
                 <div class="pr-3"><strong>111</strong> posts</div>
                 <div class="pr-3"><strong>111</strong> followers</div>

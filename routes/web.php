@@ -21,6 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// This routes requests for "/p/create".
+Route::get('/p/create', 'PostsController@create');
+Route::post('/p', 'PostsController@store');
+
 Auth::routes();
 
 /*It's extremelly important to follow the RESTFUl conventions.*/
