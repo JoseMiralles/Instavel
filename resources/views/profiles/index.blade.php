@@ -15,7 +15,9 @@
             <div class="col-md-9 pt-5 profile-info">
                 <div class="profile-name d-flex justify-content-between align-items-baseline">
                     <h1>{{ $user->username }}</h1>
-                    <a href="/p/create">add new post</a>
+                    @can('update', $user->profile)
+                        <a href="/p/create">add new post</a>
+                    @endcan
                 </div>
 
                 <!-- Only render this part if the user is properly authenticated to edit this profile. -->
