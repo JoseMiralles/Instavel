@@ -7,8 +7,8 @@
 
             <!-- Profile pic -->
             <div class="col-md-3 p-5 profile-pic-wrapper">
-                <img class="rounded-circle"
-                    src="https://pyxis.nymag.com/v1/imgs/9b1/3bf/52ecf309c857c380b7187bfc8c59dac441-04-jeb-bush-1.rsquare.w330.jpg" />
+                <img class="rounded-circle w-100"
+                src="/storage/{{ $user->profile->image }}" />
             </div>
 
             <!-- Profile info -->

@@ -10,8 +10,19 @@
 
             <div class="col-4">
                 <div>
-                <h3>{{$post->user->username}}</h3>
-                <p>{{$post->caption}}</p>
+
+                    <div class="d-flex pb-1 align-items-center">
+                        <div  class="pr-2"  style="width:45px;">
+                            <img class="w-100 rounded-circle" src="/storage/{{ $post->user->profile->image }}" alt="">
+                        </div>
+                        <div>
+                            <div class="font-weight-bold">{{ $post->user->username }}</div>
+                        </div>
+                    </div>
+
+                    <hr/>
+
+                    <p>{{ $post->caption }}</p>
                 </div>
             </div>
 

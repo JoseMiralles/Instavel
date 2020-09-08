@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
@@ -32,9 +33,26 @@ class ProfilesController extends Controller
             'url' => 'url',
             'image' => ''
         ]);
-        
-        // Edit only if authenticated
-        auth()->user()->profile->update($data);
+
+        if (request("image"))
+        {
+        // Store it in uploads directroy.
+        // TODO: add to readme: Remember to tell laravel to link that directory: 'php artisan storage:link'
+        // Files would then be in /storage/uplodas/{filename}
+        $imagePath = request('image')->store('profile', 'public');
+
+        /** Crop the image for it to be a square.
+         * This should probably not be done.
+         */
+        $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1000, 1000);
+        $image->save();
+        }
+
+        //Update with $data and $imagePath
+        auth()->user()->profile->update(
+            //The new image was already uplodaded, so add the image's path to the update.
+            array_merge($data, ['image' => $imagePath])
+        );
 
         return redirect("/profile/{$user->id}");
     }

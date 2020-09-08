@@ -53,4 +53,20 @@ class User extends Authenticatable
         return $this->hasMany(Post::class)->orderBy('created_at', "DESC");
     }
 
+    /**
+     * Runs when the user is created.
+     * Can be used to create and populate non-nullable data of children.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Create and populate the profile.
+        static::created(function ($user) {
+            $user->profile()->create([
+                'title' => $user->username
+            ]);
+        });
+    }
+
 }
