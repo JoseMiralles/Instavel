@@ -17,6 +17,12 @@
                     <h1>{{ $user->username }}</h1>
                     <a href="/p/create">add new post</a>
                 </div>
+
+                <!-- Only render this part if the user is properly authenticated to edit this profile. -->
+                @can('update', $user->profile)
+                    <a href="/profile/{{ $user->id }}/edit">Edit profile</a>
+                @endcan
+
                 <div class="d-flex">
                     <div class="pr-3"><strong>{{ $user->posts->count() }}</strong> posts</div>
                     <div class="pr-3"><strong>111</strong> followers</div>
@@ -37,7 +43,7 @@
             @foreach ($user->posts as $post)
 
                 <div class="col-4 p-3 image-post">
-                    <a href="/p/{{$post->id}}">
+                    <a href="/p/{{ $post->id }}">
                         <img class="w-100" src="/storage/{{ $post->image }}" />
                     </a>
                 </div>

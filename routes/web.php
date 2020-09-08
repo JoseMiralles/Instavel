@@ -29,4 +29,6 @@ Route::post('/p', 'PostsController@store'); // Image posting
 Auth::routes();
 
 /*It's extremelly important to follow the RESTFUl conventions.*/
-Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
+Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show'); //Get the profile
+Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit'); //Edit the profile
+Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update'); //Edit profile
