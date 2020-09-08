@@ -18,4 +18,13 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Returns the profile image if it exists.
+     * Otherwise, it returns the placeholder image.
+     */
+    public function profileImage()
+    {
+        return ($this->image) ? '/storage/' . $this->image : "/images/profile_pic.png";
+    }
 }

@@ -8,13 +8,18 @@
             <!-- Profile pic -->
             <div class="col-md-3 p-5 profile-pic-wrapper">
                 <img class="rounded-circle w-100"
-                src="/storage/{{ $user->profile->image }}" />
+            src="{{$user->profile->profileImage()}}" />
             </div>
 
             <!-- Profile info -->
             <div class="col-md-9 pt-5 profile-info">
                 <div class="profile-name d-flex justify-content-between align-items-baseline">
-                    <h1>{{ $user->username }}</h1>
+
+                    <div class='d-flex align-items-center'>
+                        <h1>{{ $user->username }}</h1>
+                        <button class="btn btn-primary ml-3">Follow</button>
+                    </div>
+
                     @can('update', $user->profile)
                         <a href="/p/create">add new post</a>
                     @endcan

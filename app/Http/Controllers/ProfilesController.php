@@ -23,6 +23,9 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user')); //compact is an alternative way of passing the user in.
     }
 
+    /**
+     * Controlls profile updates
+     */
     public function update(\App\User $user)
     {
         $this->authorize('update', $user->profile); //Authorize this user to update this profile.
@@ -46,12 +49,16 @@ class ProfilesController extends Controller
          */
         $image = Image::make(public_path("/storage/{$imagePath}"))->fit(1000, 1000);
         $image->save();
+
+        //The new image was already uplodaded, so add the image's path to the update.
+        $imageArray = ['image' => $imagePath];
         }
 
         //Update with $data and $imagePath
         auth()->user()->profile->update(
-            //The new image was already uplodaded, so add the image's path to the update.
-            array_merge($data, ['image' => $imagePath])
+            array_merge($data, 
+            $imageArray ?? [], // If $imageArray is null, then pass an empty array to avoid deleteing the profile image.
+            )
         );
 
         return redirect("/profile/{$user->id}");
