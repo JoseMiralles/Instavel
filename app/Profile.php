@@ -20,6 +20,14 @@ class Profile extends Model
     }
 
     /**
+     * This controlls this profile being followed by a class.
+     */
+    public function following()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
      * Returns the profile image if it exists.
      * Otherwise, it returns the placeholder image.
      */

@@ -19,15 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/follow/{user}', 'FollowsController@store');
 
 // This routes requests for "/p/create".
 Route::get('/p/create', 'PostsController@create'); // Upload page.
 //Ensure that this route comes after all the other /p/.. routes to avoid conflicts.
 Route::get('/p/{post}', 'PostsController@show'); //Display image page. {passes $post to the PostController}
 Route::post('/p', 'PostsController@store'); // Image posting
-
-Auth::routes();
 
 /*It's extremelly important to follow the RESTFUl conventions.*/
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show'); //Get the profile

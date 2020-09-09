@@ -54,6 +54,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Controlls following multiple profiles 1:n.
+     */
+    public function following()
+    {
+        return $this->belongsToMany(profile::class);
+    }
+
+    /**
      * Runs when the user is created.
      * Can be used to create and populate non-nullable data of children.
      */

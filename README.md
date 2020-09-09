@@ -1,3 +1,18 @@
+Setup:
+Install composer dependencies
+1. composer install
+Install npm dependencies
+2. npm install
+3. Create an sql database in the /database directory.
+Apply migrations to database
+4. php artisan migrate
+Link remote storage directory.
+5. php artisan storage:link
+
+Serve and watch/compile JS and SCSS changes:
+- npm run watch
+- php artisan serve
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

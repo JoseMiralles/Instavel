@@ -11,8 +11,15 @@ class ProfilesController extends Controller
 
     public function index(\App\User $user)
     {
+
+        $follows = false;
+        if (auth()->user()){
+            $follows = auth()->user()->following->contains($user->id);
+        }
+
         return view('profiles/index', [
             'user' => $user,
+            'follows' => $follows,
         ]);
     }
 
