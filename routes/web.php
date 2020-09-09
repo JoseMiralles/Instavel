@@ -13,14 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::post('/follow/{user}', 'FollowsController@store');
 
+Route::get('/', 'PostsController@index');
 // This routes requests for "/p/create".
 Route::get('/p/create', 'PostsController@create'); // Upload page.
 //Ensure that this route comes after all the other /p/.. routes to avoid conflicts.

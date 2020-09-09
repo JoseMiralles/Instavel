@@ -2,7 +2,7 @@ Setup:
 
 1. Install composer dependencies
 
-`composer install`
+`composer install` then `php artisan telescope:install`
 
 2. Install npm dependencies
 

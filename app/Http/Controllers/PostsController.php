@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -11,6 +12,19 @@ class PostsController extends Controller
     {
         // This sends users to the login page if they are not logged in.
         $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        // Pluck all of the user_id values from all of the profiles being followed by the user.
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        // Get an array of all of the posts from $users, but ordered by the lastes uploaded.
+        // Also, paginate them by 5. And load them with each user, to reduce the amount of queries.
+        $posts = Post::whereIn("user_id", $users)->with('user')->latest()->paginate(5);
+
+        return view('posts.index', [
+            'posts' => $posts,
+        ]);
     }
 
     public function create()
