@@ -1,17 +1,28 @@
 Setup:
-Install composer dependencies
-1. composer install
-Install npm dependencies
-2. npm install
-3. Create an sql database in the /database directory.
-Apply migrations to database
-4. php artisan migrate
-Link remote storage directory.
-5. php artisan storage:link
 
-Serve and watch/compile JS and SCSS changes:
-- npm run watch
-- php artisan serve
+1. Install composer dependencies
+
+`composer install`
+
+2. Install npm dependencies
+
+`npm install`
+
+3. Create an sql database in the /database directory.
+
+`vim database/database.sqlite` or `touch database/database`
+
+4. Apply migrations to database
+
+`php artisan migrate`
+
+5. Link remote storage directory.
+
+`php artisan storage:link`
+
+6. Serve and watch/compile JS and SCSS changes:
+
+`npm run watch` and in another terminal `php artisan serve`
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
