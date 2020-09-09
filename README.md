@@ -10,7 +10,13 @@ Setup:
 
 3. Create an sql database in the /database directory.
 
-`vim database/database.sqlite` or `touch database/database`
+Ex: `vim database/database.sqlite` or `touch database/database.sqlite` for an sqlite db.
+
+3.1 Duplicate the `.env.example` file, and rename it to `.env`.
+
+3.2 Then, delete all of the `DB_` fields, execept for `DB_CONNECTION`, and assign it the local database name:
+
+Ex: `DB_CONNECTION=sqlite`
 
 4. Apply migrations to database
 
